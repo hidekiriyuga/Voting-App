@@ -23,7 +23,7 @@ contract my721Token is ERC721, Ownable {
     mapping(uint => address) public NFTowners;
     mapping(address => uint) public numberOfNFT;
 
-    constructor() ERC721("Vaithi", "YT") {}
+    constructor() ERC721("Arsh", "Am") {}
 
     function safeMint(address to, uint256 tokenId) external onlyOwner {
         require(numberOfNFT[to] < 1, "Only one NFT for one address");
@@ -49,7 +49,7 @@ contract my721Token is ERC721, Ownable {
     }
 
     function withdrawTokens() public payable onlyOwner {
-        require(NFTsMinted == 5, "All NFT's must be minted first");
+        require(NFTsMinted == 5, "NFT's must be minted first");
         for (uint i = 1; i <= NFTsMinted; i++) {
             console.log(NFTowners[i]);
             IYT(ERC20contractAddress).transfer(NFTowners[i] , 10);
@@ -59,7 +59,7 @@ contract my721Token is ERC721, Ownable {
 }
 
 contract ERC20token is ERC20 {
-    constructor() ERC20("Vaithii", "YT") {
+    constructor() ERC20("Arsh", "AM") {
         _mint(msg.sender, 1000);
     }
 
